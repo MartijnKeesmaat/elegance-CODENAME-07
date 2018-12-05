@@ -166,11 +166,11 @@
         }
 
         /* */
-        // image.anchor.set(0.5);
-        // image.x = renderer.width / 2;
-        // image.y = renderer.height / 2;
-        // image.transform.scale.x = 1.3;
-        // image.transform.scale.y = 1.3;
+        image.anchor.set(0.5);
+        image.x = renderer.width / 2;
+        image.y = renderer.height / 2;
+        image.transform.scale.x = 0.8;
+        image.transform.scale.y = 0.8;
 
         if (i !== 0) {
           TweenMax.set(image, { alpha: 0 });
