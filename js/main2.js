@@ -11,8 +11,6 @@
 
   const addTextAnimation = () =>
     DOM.blockReveal.classList.add('block-reveal-container--active');
-  const removeTextAnimation = () =>
-    DOM.blockReveal.classList.remove('block-reveal-container--active');
   addTextAnimation();
 
   const texts = [
@@ -304,7 +302,6 @@
           return false;
         }
         DOM.slideTitle.innerHTML = texts[that.currentIndex + 1].title;
-        DOM.slideTitle.classList.remove('');
         DOM.slideBody.innerHTML = texts[that.currentIndex + 1].body;
         if (this.getAttribute('data-nav') === 'next') {
           if (
