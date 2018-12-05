@@ -19,10 +19,12 @@ body
   display: flex
   justify-content: center
   align-items: center
+  background-image: url(img/bg.jpg)
 
 
 #frame 
-  background: #0a081a
+  transform: scale(1.1)
+  background: #000
   height: 610px
   width: 1086px
   overflow: hidden
@@ -35,7 +37,9 @@ body
   display: flex
   justify-content: space-between
   flex-direction: column 
-  
+
+button:focus
+  outline: 0
 
 header
   display: flex
@@ -43,6 +47,8 @@ header
   align-items: center
   position: relative
   z-index: 1
+  opacity: 0
+  animation: fade-in 1s ease 2.5s forwards
 
   img
     height: 18px
@@ -78,7 +84,9 @@ header
 main
   margin-left: 100px
   max-width: 400px
-
+  position: relative
+  width: 100%
+  z-index: 1
 
   h1
     letter-spacing: 4px
@@ -93,6 +101,8 @@ main
     margin-left: 30px
 
 aside.social
+  opacity: 0
+  animation: fade-in 1s ease 2.5s forwards
   position: absolute
   right: 30px
   top: 50%
@@ -107,6 +117,25 @@ aside.social
     justify-content: center
     width: 32px
     height: 32px
+    position: relative
+    overflow: hidden
+    cursor: pointer
+  
+    &:after 
+      content: ''
+      background-color: #ffffff45
+      transform: translateX(-100%)
+      position: absolute
+      width: 32px
+      height: 32px
+      transition: .3s all ease
+
+    &:hover 
+
+      &:after 
+        transform: translateX(0)
+    
+  
 
   img
     width: 80%
@@ -119,6 +148,8 @@ footer
   align-items: flex-end
   position: relative
   z-index: 1
+  opacity: 0
+  animation: fade-in 1s ease 2.5s forwards
   
   .author
     img
@@ -148,6 +179,23 @@ footer
     justify-content: center
     width: 30px
     height: 30px
+    position: relative
+    overflow: hidden
+    cursor: pointer
+
+    &:after 
+      content: ''
+      background-color: #ffffff45
+      transform: translateX(-100%)
+      position: absolute
+      width: 32px
+      height: 32px
+      transition: .3s all ease
+
+    &:hover 
+
+      &:after 
+        transform: translateX(0)
 
     img
       height: 12px
@@ -155,12 +203,13 @@ footer
 .slide-numb
   filter: blur(5px)
   font-size: 12em
+  right: -60px
   position: absolute
-  bottom: -90px
-  right: 20px
+  bottom: -110px
   margin: 0
   opacity: .1
   letter-spacing: 8px
+  z-index: -1
 
 
 .block-reveal-container  
@@ -207,8 +256,12 @@ footer
   
   
     
+@keyframes fade-in
+  from
+    opacity: 0
 
-
+  to
+    opacity: 1
 
 // Keyframes
 @keyframes block-rev-block
@@ -233,11 +286,11 @@ canvas
   position: absolute
   left: 0
   top: 0
+  opacity: 0
+  animation: fade-in 1.5s ease 1s forwards
 
 .slide-wrapper 
   display: none
 
-main 
-  position: relative
-  width: 100%
-  z-index: 1
+
+

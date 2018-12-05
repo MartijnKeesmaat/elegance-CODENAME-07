@@ -11,7 +11,8 @@
 
   const addTextAnimation = () =>
     DOM.blockReveal.classList.add('block-reveal-container--active');
-  addTextAnimation();
+
+  setTimeout(addTextAnimation, 2000);
 
   const texts = [
     {

@@ -19,10 +19,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(img/bg.jpg);
 }
 
 #frame {
-  background: #0a081a;
+  transform: scale(1.1);
+  background: #000;
   height: 610px;
   width: 1086px;
   overflow: hidden;
@@ -36,12 +38,18 @@ body {
   flex-direction: column;
 }
 
+button:focus {
+  outline: 0;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   z-index: 1;
+  opacity: 0;
+  animation: fade-in 1s ease 2.5s forwards;
 }
 header img {
   height: 18px;
@@ -77,6 +85,9 @@ header .nav--active:before {
 main {
   margin-left: 100px;
   max-width: 400px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
 main h1 {
   letter-spacing: 4px;
@@ -92,6 +103,8 @@ main p {
 }
 
 aside.social {
+  opacity: 0;
+  animation: fade-in 1s ease 2.5s forwards;
   position: absolute;
   right: 30px;
   top: 50%;
@@ -106,6 +119,21 @@ aside.social button {
   justify-content: center;
   width: 32px;
   height: 32px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+aside.social button:after {
+  content: "";
+  background-color: #ffffff45;
+  transform: translateX(-100%);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  transition: 0.3s all ease;
+}
+aside.social button:hover:after {
+  transform: translateX(0);
 }
 aside.social img {
   width: 80%;
@@ -118,6 +146,8 @@ footer {
   align-items: flex-end;
   position: relative;
   z-index: 1;
+  opacity: 0;
+  animation: fade-in 1s ease 2.5s forwards;
 }
 footer .author img {
   height: 23px;
@@ -147,6 +177,21 @@ footer button {
   justify-content: center;
   width: 30px;
   height: 30px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+footer button:after {
+  content: "";
+  background-color: #ffffff45;
+  transform: translateX(-100%);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  transition: 0.3s all ease;
+}
+footer button:hover:after {
+  transform: translateX(0);
 }
 footer button img {
   height: 12px;
@@ -155,12 +200,13 @@ footer button img {
 .slide-numb {
   filter: blur(5px);
   font-size: 12em;
+  right: -60px;
   position: absolute;
-  bottom: -90px;
-  right: 20px;
+  bottom: -110px;
   margin: 0;
   opacity: 0.1;
   letter-spacing: 8px;
+  z-index: -1;
 }
 
 .block-reveal-container--active .block-reveal__text {
@@ -204,6 +250,14 @@ footer button img {
   transform: translateX(calc(100% + 1px));
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes block-rev-block {
   0% {
     transform: translateX(-100%);
@@ -225,16 +279,12 @@ canvas {
   position: absolute;
   left: 0;
   top: 0;
+  opacity: 0;
+  animation: fade-in 1.5s ease 1s forwards;
 }
 
 .slide-wrapper {
   display: none;
-}
-
-main {
-  position: relative;
-  width: 100%;
-  z-index: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
