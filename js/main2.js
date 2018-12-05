@@ -3,6 +3,36 @@
   const canvasWidth = FRAME.offsetWidth;
   const canvasHeight = FRAME.offsetHeight;
 
+  const DOM = {
+    slideTitle: document.querySelector('.slide__title'),
+    slideBody: document.querySelector('.slide__body'),
+    blockReveal: document.querySelector('.block-reveal-container')
+  };
+
+  const addTextAnimation = () =>
+    DOM.blockReveal.classList.add('block-reveal-container--active');
+  const removeTextAnimation = () =>
+    DOM.blockReveal.classList.remove('block-reveal-container--active');
+  addTextAnimation();
+
+  const texts = [
+    {
+      title: 'Memento mori',
+      body:
+        'In art, memento mori are artistic or symbolic reminders of mortality. In the European Christian art context, "the expression developed with the growth.'
+    },
+    {
+      title: 'Amor Fati',
+      body:
+        "Love your fate is a Latin phrase that may be loosely translated. as love of fate or love of one's fate. ...moreover amor fati is characterized by an acceptance of the events or situations."
+    },
+    {
+      title: 'Memento more',
+      body:
+        'In art, memento mori are artistic or symbolic reminders of mortality. In the European Christian art context, "the expression developed with the growth.'
+    }
+  ];
+
   window.CanvasSlideshow = function(options) {
     //  SCOPE
     /// ---------------------------
@@ -273,7 +303,9 @@
         if (isPlaying) {
           return false;
         }
-
+        DOM.slideTitle.innerHTML = texts[that.currentIndex + 1].title;
+        DOM.slideTitle.classList.remove('');
+        DOM.slideBody.innerHTML = texts[that.currentIndex + 1].body;
         if (this.getAttribute('data-nav') === 'next') {
           if (
             that.currentIndex >= 0 &&
@@ -290,7 +322,6 @@
             that.moveSlider(spriteImages.length - 1);
           }
         }
-
         return false;
       };
     }

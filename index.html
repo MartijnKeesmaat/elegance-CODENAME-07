@@ -19,12 +19,25 @@
         </header>
         <main>
           
-          <h1>Memento mori</h1>
-          <p>
-            In art, memento mori are artistic or symbolic reminders of
-            mortality. In the European Christian art context, "the expression
-            developed with the growth.
-          </p>
+          <div class="slide__content block-reveal-container">
+            <div class="slide__content__item">
+              <div class="block-reveal">
+                <span class="block-reveal__block"></span>
+                <h1 class="block-reveal__text slide__title">Memento mori</h1>
+              </div>
+              <div class="block-reveal block-reveal-delay">
+                <span class="block-reveal__block"></span>
+                <p class="block-reveal__text">
+                  <span class="slide__body" style="opacity: .6">
+                    In art, memento mori are artistic or symbolic reminders of
+                    mortality. In the European Christian art context, "the expression
+                    developed with the growth.
+                  </span>
+                </p>
+              </div> 
+            </div>
+          </div>
+
           <div class="content">
             <div class="slide-wrapper">
               <div class="slide-item">
@@ -33,9 +46,9 @@
               <div class="slide-item">
                 <img src="img/img-slide-2.jpg" class="slide-item__image" />
               </div>
-              <!-- <div class="slide-item">
-                <img src="img/6.jpg" class="slide-item__image" />
-              </div>  -->
+              <div class="slide-item">
+                <img src="img/img-slide-3.jpg" class="slide-item__image" />
+              </div>
             </div>
           </div>
         </main>
@@ -50,19 +63,11 @@
             <p>Photographer</p>
           </section>
           <div class="slide-controls">
-            <!-- <button></button>
-            <button></button> -->
             <button class="scene-nav scene-nav--prev" data-nav="previous">
               <img src="img/left-arrow.svg" alt="" />
-              <!-- <svg class="icon icon--arrow-nav-prev">
-                <use xlink:href="#icon-arrow-nav"></use>
-              </svg> -->
             </button>
             <button class="scene-nav scene-nav--next" data-nav="next">
               <img src="img/right-arrow.svg" alt="" />
-              <!-- <svg class="icon icon--arrow-nav-next">
-                <use xlink:href="#icon-arrow-nav"></use>
-              </svg> -->
             </button>
           </div>
           <p class="slide-numb">07</p>
@@ -76,6 +81,7 @@
     <script src="js/TweenMax.min.js"></script>
     <script src="js/main2.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="ui.js"></script>
     <script>
       imagesLoaded(document.body, () =>
         document.body.classList.remove('loading')
@@ -101,7 +107,7 @@
 
       var initCanvasSlideshow = new CanvasSlideshow({
         sprites: spriteImagesSrc,
-        displacementImage: 'img/dmaps/512x512/clouds.jpg',
+        displacementImage: 'img/dmaps/512x512/ripple.jpg',
         autoPlay: true,
         autoPlaySpeed: [0.3, 0.3],
         displaceScale: [800, 500],
